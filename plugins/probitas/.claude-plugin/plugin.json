@@ -2,7 +2,10 @@
   "name": "probitas",
   "version": "0.1.0",
   "description": "Probitas scenario testing framework integration for Claude Code",
-  "author": "jsr-probitas",
+  "author": {
+    "name": "jsr-probitas",
+    "url": "https://github.com/jsr-probitas"
+  },
   "repository": "https://github.com/jsr-probitas/claude-plugins",
   "keywords": ["testing", "integration-testing", "scenario", "deno"],
   "license": "MIT"
