@@ -1,0 +1,11 @@
+{
+  "name": "jsr-probitas",
+  "description": "Official Probitas plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "probitas",
+      "path": "plugins/probitas",
+      "description": "Probitas scenario testing framework integration"
+    }
+  ]
+}
