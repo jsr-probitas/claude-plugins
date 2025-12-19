@@ -1,10 +1,13 @@
 {
   "name": "jsr-probitas",
+  "owner": {
+    "name": "jsr-probitas"
+  },
   "description": "Official Probitas plugins for Claude Code",
   "plugins": [
     {
       "name": "probitas",
-      "path": "plugins/probitas",
+      "source": "./plugins/probitas",
       "description": "Probitas scenario testing framework integration"
     }
   ]

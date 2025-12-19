@@ -6,7 +6,8 @@ Claude Code plugin marketplace for Probitas ecosystem.
 
 ```
 claude-plugins/
-├── marketplace.json      # Marketplace definition
+├── .claude-plugin/
+│   └── marketplace.json  # Marketplace definition
 ├── plugins/
 │   └── probitas/         # Probitas plugin
 │       ├── .claude-plugin/
