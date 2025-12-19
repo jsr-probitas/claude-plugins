@@ -28,6 +28,9 @@ Add to your project's `.claude/settings.json`:
   "plugins": {
     "marketplaces": ["jsr-probitas/claude-plugins"],
     "installed": ["probitas@jsr-probitas"]
+  },
+  "enabledPlugins": {
+    "probitas@jsr-probitas": true
   }
 }
 ```
