@@ -55,6 +55,8 @@ context should be shared**:
 - Keep focused on unique purpose
 - Invoke skills for reusable workflows
 - Invoke commands for standard procedures
+- **Include rules content directly** - agents have isolated context, so `rules/`
+  files are NOT inherited. Duplication is acceptable for reliability.
 
 ## Skills + Commands Integration Pattern
 
@@ -82,3 +84,57 @@ Benefits:
 | Context  | Shared with main conversation | Isolated subprocess               |
 | Results  | Full context visible          | Only final result returned        |
 | Best for | Deterministic workflows       | Exploratory/trial-and-error tasks |
+
+## Agent Context Isolation
+
+**IMPORTANT**: Custom agents (defined in `agents/*.md`) do NOT inherit:
+
+- `CLAUDE.md`
+- `rules/*.md`
+- Project memory
+
+This is by design for context isolation. Consequences:
+
+1. **Rules must be duplicated in agent definitions** - If an agent needs to
+   follow coding conventions defined in `rules/`, include that content directly
+   in the agent file.
+2. **Skills can be injected via `skills:` frontmatter** - Use comma-separated
+   skill names to auto-load skills into agent context.
+3. **Duplication is acceptable** - Reliability > DRY principle for agents.
+
+```yaml
+---
+name: my-agent
+description: ...
+skills: skill1, skill2 # Optional: auto-load these skills
+---
+
+# Include rules content here directly
+```
+
+Note: Built-in Task tool agents (`general-purpose`, `Explore`, etc.) DO inherit
+the main context including rules.
+
+## Agent Invocation
+
+**IMPORTANT**: Custom agents are NOT invoked via the Task tool's `subagent_type`
+parameter. That parameter only accepts built-in agents.
+
+Custom agents are invoked through:
+
+1. **Auto-delegation** - Claude automatically invokes based on `description`
+2. **Explicit user request** - "Use the my-agent agent to..."
+
+**Wrong** (doesn't work):
+
+```markdown
+Task tool: subagent_type="my-agent"
+```
+
+**Correct** (in skills or instructions):
+
+```markdown
+Use the my-agent agent to [describe task]
+```
+
+To verify available agents: `/agents` command.

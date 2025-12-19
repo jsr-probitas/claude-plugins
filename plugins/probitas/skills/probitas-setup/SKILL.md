@@ -3,7 +3,24 @@ name: probitas-setup
 description: Probitas project setup and installation. Use when initializing Probitas, setting up E2E testing, or installing probitas CLI.
 ---
 
-## CLI Installation
+## CRITICAL: USE SLASH COMMANDS
+
+**NEVER run `probitas init` directly.**
+
+You MUST use the `/probitas-init` slash command:
+
+```
+SlashCommand tool: command="/probitas-init"
+```
+
+The slash command handles directory setup and configuration correctly.
+
+## Workflow
+
+1. **Execute `/probitas-init`** via SlashCommand tool
+2. Report created files to user
+
+## CLI Installation (only if CLI not found)
 
 ```bash
 # Shell installer
@@ -14,24 +31,11 @@ brew tap jsr-probitas/tap && brew install probitas
 
 # Nix (run directly)
 nix run github:jsr-probitas/cli
-
-# Nix (permanent install)
-nix profile install github:jsr-probitas/cli
 ```
 
 Verify: `probitas --version`
 
-## Project Initialization
-
-Run `/probitas:init` or:
-
-```bash
-probitas init              # Default directory
-probitas init -d scenarios # Custom directory
-probitas init --force      # Overwrite existing
-```
-
-Creates:
+## Created Files
 
 - `example.probitas.ts` - Sample scenario
 - `probitas.jsonc` - Configuration

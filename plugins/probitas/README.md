@@ -5,19 +5,9 @@ scenario testing framework.
 
 ## Features
 
-### Rules
-
-Applied automatically when editing `*.probitas.ts` files:
-
-- **import** - Import statements
-- **pattern** - Export pattern (single/multiple)
-- **assertions** - expect() chaining rules
-- **mistakes** - Common mistakes to avoid
-- **best-practices** - Best practices
-- **context** - Step context (ctx) usage
-
 ### Skills
 
+- **probitas-info** - Framework overview and features
 - **probitas-setup** - CLI installation and project setup
 - **probitas-write** - Scenario writing (delegates to agent)
 - **probitas-run** - Running and debugging scenarios
@@ -26,10 +16,10 @@ Applied automatically when editing `*.probitas.ts` files:
 
 | Command                    | Description                   |
 | -------------------------- | ----------------------------- |
-| `/probitas:init`           | Initialize a Probitas project |
-| `/probitas:run [selector]` | Run scenarios                 |
-| `/probitas:new <type>`     | Generate scenario template    |
-| `/probitas:check`          | Run format, lint, type check  |
+| `/probitas-init`           | Initialize a Probitas project |
+| `/probitas-run [selector]` | Run scenarios                 |
+| `/probitas-new <type>`     | Generate scenario template    |
+| `/probitas-check`          | Run format, lint, type check  |
 
 ### Agents
 
