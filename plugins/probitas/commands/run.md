@@ -2,8 +2,6 @@
 description: Run scenarios with optional selector
 ---
 
-Run scenarios. If failures, explain cause and suggest fixes.
-
 ```bash
 # Without selector
 probitas run
@@ -11,3 +9,17 @@ probitas run
 # With selector (e.g., /probitas:run user)
 probitas run -s $ARGUMENTS
 ```
+
+## Selector Examples
+
+```bash
+probitas run -s tag:api             # Match tag
+probitas run -s "!tag:slow"         # Exclude tag
+probitas run -s "tag:api,!tag:slow" # AND condition
+probitas run -s user                # Match scenario name
+```
+
+If `probitas` command not found, fetch installation instructions from:
+https://jsr-probitas.github.io/documents/docs/index.md
+
+If failures occur, explain cause and suggest fixes.

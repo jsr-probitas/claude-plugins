@@ -1,16 +1,17 @@
 ---
 name: probitas
-description: Probitas scenario testing patterns. Use when writing integration tests.
+description: Probitas scenario testing framework. Use for installation, setup, writing integration tests, or any Probitas questions.
 ---
 
 ## Documentation
 
 **Fetch latest via WebFetch:**
 
-- Sitemap: https://jsr-probitas.github.io/documents/llms.txt
+- Overview & Installation: https://jsr-probitas.github.io/documents/docs/index.md
 - Scenario: https://jsr-probitas.github.io/documents/docs/scenario/index.md
 - Client: https://jsr-probitas.github.io/documents/docs/client/index.md
 - Assertions: https://jsr-probitas.github.io/documents/docs/expect/index.md
+- LLM Sitemap: https://jsr-probitas.github.io/documents/llms.txt
 
 ## Commands
 
