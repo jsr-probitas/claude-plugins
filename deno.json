@@ -1,0 +1,7 @@
+{
+  "fmt": {
+    "include": ["**/*.md", "**/*.json"],
+    "exclude": [".git/**"],
+    "proseWrap": "preserve"
+  }
+}
