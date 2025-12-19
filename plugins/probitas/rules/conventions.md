@@ -1,5 +1,21 @@
 # Probitas Conventions
 
+## Prerequisites
+
+**Probitas CLI must be installed before using any `probitas` commands.**
+
+```bash
+# Homebrew (macOS/Linux)
+brew tap jsr-probitas/tap
+brew install probitas
+
+# Shell installer
+curl -fsSL https://raw.githubusercontent.com/jsr-probitas/cli/main/install.sh | bash
+
+# Nix
+nix run github:jsr-probitas/cli
+```
+
 ## File Structure
 
 - Scenarios: `probitas/*.probitas.ts`
