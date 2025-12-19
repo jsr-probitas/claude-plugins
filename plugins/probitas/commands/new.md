@@ -4,11 +4,9 @@ description: Generate scenario template (http, database, grpc, graphql)
 
 ## Workflow
 
-1. Fetch template info from
-   https://jsr-probitas.github.io/documents/docs/scenario/index.md
-2. Generate template based on type argument
-3. Save to `probitas/{name}.probitas.ts`
-4. Run `deno check probitas/{name}.probitas.ts`
+1. Generate template based on type argument
+2. Save to `probitas/{name}.probitas.ts`
+3. Run `deno check **/*.probitas.ts`
 
 ## Templates
 
@@ -45,3 +43,7 @@ export default scenario("Database Test", { tags: ["database"] })
   })
   .build();
 ```
+
+## Docs
+
+https://jsr-probitas.github.io/documents/docs/scenario/index.md

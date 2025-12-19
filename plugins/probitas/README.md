@@ -7,12 +7,20 @@ scenario testing framework.
 
 ### Rules
 
-- **conventions** - File structure, naming, and coding conventions (always
-  applied)
+Applied automatically when editing `*.probitas.ts` files:
+
+- **import** - Import statements
+- **pattern** - Export pattern (single/multiple)
+- **assertions** - expect() chaining rules
+- **mistakes** - Common mistakes to avoid
+- **best-practices** - Best practices
+- **context** - Step context (ctx) usage
 
 ### Skills
 
-- **probitas** - Scenario testing knowledge and patterns (on-demand)
+- **probitas-setup** - CLI installation and project setup
+- **probitas-write** - Scenario writing (delegates to agent)
+- **probitas-run** - Running and debugging scenarios
 
 ### Commands
 
@@ -21,12 +29,11 @@ scenario testing framework.
 | `/probitas:init`           | Initialize a Probitas project |
 | `/probitas:run [selector]` | Run scenarios                 |
 | `/probitas:new <type>`     | Generate scenario template    |
-| `/probitas:check`          | Run syntax check              |
+| `/probitas:check`          | Run format, lint, type check  |
 
 ### Agents
 
-- **scenario-writer** - Specialized agent for creating integration test
-  scenarios
+- **scenario-writer** - Create and edit `*.probitas.ts` files
 
 ## Installation
 
