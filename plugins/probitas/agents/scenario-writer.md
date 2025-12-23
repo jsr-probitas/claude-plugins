@@ -18,7 +18,7 @@ export default scenario("Test name", { tags: ["..."] })
   .step("Step name", async (ctx) => {
     const res = await ctx.resources.http.post("/endpoint", { body: {} });
     expect(res).toBeOk().toHaveStatus(200);
-    return res.json<{ id: number }>()!;
+    return res.json as { id: number } | null;
   })
   .build();
 ```
@@ -119,36 +119,41 @@ expect(res)
   .toHaveDataMatching({ statusCode: 0 })
   .toHaveDataProperty("metadata");
 
-return res.data<{ metadata?: Record<string, unknown> }>()!;
+return res.data as { metadata?: Record<string, unknown> } | null;
 ```
 
-**For nested property paths, use array syntax:**
+**For nested property paths, use dot-notation strings:**
 
 ```typescript
-// ✅ CORRECT - array syntax for nested paths
+// ✅ CORRECT - dot-notation for nested paths
 expect(res)
   .toBeOk()
   .toHaveDataProperty("Metadata")
-  .not.toHaveDataProperty(["Metadata", "x-internal-token"]);
+  .not.toHaveDataProperty("Metadata.x-internal-token");
+```
+
+**Use array syntax only when property names contain dots:**
+
+```typescript
+// ✅ CORRECT - array syntax when property name contains "."
+expect(res)
+  .toBeOk()
+  .not.toHaveDataProperty(["api.internal", "token"]); // "api.internal" is the actual property name
 ```
 
 ```typescript
-// ❌ WRONG - dot-notation for nested paths (NOT SUPPORTED)
-expect(res).not.toHaveDataProperty("Metadata.x-internal-token");
-
 // ❌ WRONG - split expect calls
 expect(res).toHaveDataMatching({ statusCode: 0 });
-const data = res.data<...>()!;  // Don't extract between expects!
+const data = res.data as ...;  // Don't extract between expects!
 expect(res).toHaveDataProperty("metadata");
 
 // ❌ WRONG - separate expect for .not
 expect(res).toHaveDataProperty("metadata");
-expect(res).not.toHaveDataProperty(["Metadata", "x-internal-token"]);  // Chain it!
+expect(res).not.toHaveDataProperty("Metadata.x-internal-token");  // Chain it!
 ```
 
 **DO NOT GUESS API PATTERNS:**
 
-- DO NOT infer dot-notation paths (e.g., `"metadata.field"`) unless documented
 - DO NOT assume array index syntax unless documented
 - DO NOT guess method signatures or options
 - If unsure, fetch the specific API docs from links below
@@ -180,10 +185,10 @@ client.http.createHttpClient({
   };
 })
 
-// ❌ Unnecessary type casting
-const data = res.json() as { id: number };
-// ✅ CORRECT
+// ❌ Old syntax (deprecated)
 const data = res.json<{ id: number }>()!;
+// ✅ CORRECT - json is now a property returning any
+const data = res.json as { id: number } | null;
 ```
 
 ### Best Practices
