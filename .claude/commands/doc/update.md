@@ -8,11 +8,11 @@ description: Sync plugin content with latest Probitas documentation
 
    Use WebFetch to get the latest docs:
 
-   - https://jsr-probitas.github.io/documents/llms.txt
-   - https://jsr-probitas.github.io/documents/docs/scenario/index.md
-   - https://jsr-probitas.github.io/documents/docs/client/index.md
-   - https://jsr-probitas.github.io/documents/docs/expect/index.md
-   - https://jsr-probitas.github.io/documents/docs/configuration/index.md
+   - https://probitas-test.github.io/documents/llms.txt
+   - https://probitas-test.github.io/documents/docs/scenario/index.md
+   - https://probitas-test.github.io/documents/docs/client/index.md
+   - https://probitas-test.github.io/documents/docs/expect/index.md
+   - https://probitas-test.github.io/documents/docs/configuration/index.md
 
 2. **Review and update plugin files**
 

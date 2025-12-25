@@ -28,8 +28,8 @@ claude-plugins/
 
 Plugin content is based on Probitas documentation:
 
-- Site: https://jsr-probitas.github.io/documents/
-- LLM sitemap: https://jsr-probitas.github.io/documents/llms.txt
+- Site: https://probitas-test.github.io/documents/
+- LLM sitemap: https://probitas-test.github.io/documents/llms.txt
 
 ## Updating Plugin Content
 

@@ -108,7 +108,6 @@ name: my-agent
 description: ...
 skills: skill1, skill2 # Optional: auto-load these skills
 ---
-
 # Include rules content here directly
 ```
 

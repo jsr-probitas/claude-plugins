@@ -1,7 +1,7 @@
 {
-  "name": "jsr-probitas",
+  "name": "probitas-test",
   "owner": {
-    "name": "jsr-probitas"
+    "name": "probitas-test"
   },
   "description": "Official Probitas plugins for Claude Code",
   "plugins": [
