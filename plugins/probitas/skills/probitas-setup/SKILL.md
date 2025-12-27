@@ -11,7 +11,7 @@ If `probitas` CLI not found, install first:
 
 ```bash
 # Shell installer
-curl -fsSL https://raw.githubusercontent.com/probitas-test/cli/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/probitas-test/probitas/main/install.sh | bash
 
 # Or Homebrew
 brew tap probitas-test/tap && brew install probitas

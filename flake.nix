@@ -4,24 +4,26 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    probitas.url = "github:probitas-test/cli";
-    probitas.inputs.nixpkgs.follows = "nixpkgs";
-    probitas.inputs.flake-utils.follows = "flake-utils";
+    probitas-flake.url = "github:probitas-test/probitas";
+    probitas-flake.inputs.nixpkgs.follows = "nixpkgs";
+    probitas-flake.inputs.flake-utils.follows = "flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, probitas }:
+  outputs = { self, nixpkgs, flake-utils, probitas-flake }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; };
-        probitasPkg = probitas.packages.${system}.probitas;
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ probitas-flake.overlays.default ];
+        };
       in {
-        packages.default = probitasPkg;
+        packages.default = pkgs.probitas;
 
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.deno
-            pkgs.pagefind
-            probitasPkg
+          packages = with pkgs; [
+            deno
+            pagefind
+            probitas
           ];
 
           shellHook = ''
